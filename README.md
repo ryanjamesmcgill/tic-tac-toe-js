@@ -1,3 +1,4 @@
 # tic-tac-toe-js
 freecodecamp.com project
-live view: <a href="#">link</a>
+<br>
+live view: <a href="http://ryanjamesmcgill.github.io/tic-tac-toe-js/">http://ryanjamesmcgill.github.io/tic-tac-toe-js/</a>
