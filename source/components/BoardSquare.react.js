@@ -31,11 +31,13 @@ var BoardSquare = React.createClass({
 		
 		var display = this.props.display;
 		var content = <p className={"icon"}></p>;
+		var onSquareClick = this.props.onSquareClick;
 		if(this.props.singlePlayer){
 			if(this.state.mouseOver && display === undefined && !gameOver && this.props.currentPlayer==="p1"){
 				content = <p className={"icon"} style={{color: '#4D4D4D'}}>{this.props.currentIcon}</p>;
 			} 
 			else if(display) {
+				onSquareClick = function(){};
 				content = <p className={"icon animated bounceIn"}>{display}</p>;
 			}
 		} else{
@@ -43,6 +45,7 @@ var BoardSquare = React.createClass({
 				content = <p className={"icon"} style={{color: '#4D4D4D'}}>{this.props.currentIcon}</p>;
 			} 
 			else if(display) {
+				onSquareClick = function(){};
 				content = <p className={"icon animated bounceIn"}>{display}</p>;
 			}	
 		}
@@ -50,7 +53,7 @@ var BoardSquare = React.createClass({
 		return (
 			<td id={this.props.tid}
 			    className={ClassNames}
-			    onClick={this.props.onSquareClick} 
+			    onClick={onSquareClick} 
 			    onMouseEnter={function(){self.setState({mouseOver:true})}}
 			    onTouchMove={function(){self.setState({mouseOver:false})}}
 			    onTouchEnd={function(){self.setState({mouseOver:false})}}

@@ -8,5 +8,5 @@ var ReactDOM = require('react-dom');
 var Application = require('./components/Application.react');
 
 
-console.log('[pomodoro] app.js loaded');
+console.log('[ttt] app.js loaded');
 ReactDOM.render(<Application />, document.getElementById('react-application'));
