@@ -47771,7 +47771,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Application = require('./components/Application.react');
 
-console.log('[pomodoro] app.js loaded');
+console.log('[ttt] app.js loaded');
 ReactDOM.render(React.createElement(Application, null), document.getElementById('react-application'));
 
 },{"./components/Application.react":165,"console-polyfill":2,"es5-shim":4,"es5-shim/es5-sham":3,"react":163,"react-dom":7}],165:[function(require,module,exports){
@@ -48112,6 +48112,7 @@ var BoardSquare = React.createClass({
 
 		var display = this.props.display;
 		var content = React.createElement("p", { className: "icon" });
+		var onSquareClick = this.props.onSquareClick;
 		if (this.props.singlePlayer) {
 			if (this.state.mouseOver && display === undefined && !gameOver && this.props.currentPlayer === "p1") {
 				content = React.createElement(
@@ -48120,6 +48121,7 @@ var BoardSquare = React.createClass({
 					this.props.currentIcon
 				);
 			} else if (display) {
+				onSquareClick = function () {};
 				content = React.createElement(
 					"p",
 					{ className: "icon animated bounceIn" },
@@ -48134,6 +48136,7 @@ var BoardSquare = React.createClass({
 					this.props.currentIcon
 				);
 			} else if (display) {
+				onSquareClick = function () {};
 				content = React.createElement(
 					"p",
 					{ className: "icon animated bounceIn" },
@@ -48146,7 +48149,7 @@ var BoardSquare = React.createClass({
 			"td",
 			{ id: this.props.tid,
 				className: ClassNames,
-				onClick: this.props.onSquareClick,
+				onClick: onSquareClick,
 				onMouseEnter: function () {
 					self.setState({ mouseOver: true });
 				},
